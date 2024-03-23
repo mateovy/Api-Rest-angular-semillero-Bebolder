@@ -1,0 +1,29 @@
+<div class="container">
+  <form class="vacation-request-form" [formGroup]="vacationRequestForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Empleado</mat-label>
+      <mat-select formControlName="nmIdUsuario">
+        <div *ngFor="let employee of employees" >
+          <mat-option *ngIf="employee?.empleado?.nmIdEmpleado" [value]="employee.nmIdUsuario" >{{employee.empleado.dsNombre}} {{employee.empleado.dsApellido}}</mat-option>
+        </div>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha de Inicio</mat-label>
+      <input matInput type="date" formControlName="feFechaInicio">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Fecha de Fin</mat-label>
+      <input matInput type="date" formControlName="feFechaFin">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Observaciones</mat-label>
+      <textarea matInput formControlName="dsObservaciones"></textarea>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!vacationRequestForm.valid">Enviar Solicitud</button>
+  </form>
+</div>
+

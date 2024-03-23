@@ -1,0 +1,53 @@
+
+<div class="container">
+  <div class="employee-form">
+    <h2>Editar empleado</h2>
+    <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="form">
+      <mat-form-field appearance="fill">
+        <mat-label>Empleado</mat-label>
+        <mat-select formControlName="nmIdEmpleado" (selectionChange)="onEdit($event)">
+          <mat-option *ngFor="let employee of employees" [value]="employee.nmIdEmpleado" >{{employee.dsNombre}} {{employee.dsApellido}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="Nombre" formControlName="dsNombre">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Apellido</mat-label>
+        <input matInput placeholder="Apellido" formControlName="dsApellido">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Cédula</mat-label>
+        <input matInput placeholder="Cédula" formControlName="nmDocumento">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Teléfono</mat-label>
+        <input matInput placeholder="Teléfono" formControlName="dsTelefono">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Dirección</mat-label>
+        <input matInput placeholder="Dirección" formControlName="dsDireccion">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de Ingreso</mat-label>
+        <input matInput type="date" formControlName="feFechaIngreso">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Fecha de Retiro</mat-label>
+        <input matInput type="date" formControlName="feFechaRetiro">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Supervisor</mat-label>
+        <mat-select formControlName="nmSupervisorInmediato">
+          <mat-option *ngFor="let employee of employees" [value]="employee.nmIdEmpleado" >{{employee.dsNombre}} {{employee.dsApellido}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+      <div class="buttons">
+        <button mat-raised-button color="warn" type="button" (click)="employeeForm.reset()">Cancelar</button>
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+
+<div class="container">
+  <div class="employee-form">
+    <h2>Lista de empleados</h2>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let employee of employees">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{employee.dsNombre}} {{employee.dsApellido}}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="item">
+          <h3>ID</h3>
+          <span>{{employee.nmIdEmpleado}}</span>
+        </div>
+        <div class="item">
+          <h3>Cédula</h3>
+          <span>{{employee.nmDocumento}}</span>
+        </div>
+        <div class="item">
+          <h3>Teléfono</h3>
+          <span>{{employee.dsTelefono}}</span>
+        </div>
+        <div class="item">
+          <h3>Dirección</h3>
+          <span>{{employee.dsDireccion}}</span>
+        </div>
+        <div class="item">
+          <h3>Fecha de ingreso</h3>
+          <span>{{employee.feFechaIngreso | date}}</span>
+        </div>
+        <div class="item">
+          <h3>Fecha de retiro</h3>
+          <span>{{employee.feFechaRetiro | date}}</span>
+        </div>
+        <div class="item">
+          <h3>Supervisor</h3>
+          <span>{{findInspector(employee)}}</span>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

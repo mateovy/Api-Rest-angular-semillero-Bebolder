@@ -1,0 +1,27 @@
+export interface Usuario {
+    nmIdUsuario:number,
+    empleado:{
+        nmIdEmpleado:number,
+        nmDocumento:number,
+        dsTipoDocumento:string,
+        dsNombre:string,
+        dsApellido:string,
+        dsTelefono:string,
+        dsDireccion:string,
+        feFechaIngreso:string,
+        feFechaRetiro:string,
+        dsTipoContrato:string,
+        dsEstadoEmpleado:string,
+        nmSupervisorInmediato:number,
+        nmCargo:number
+    },
+    dsUsuario:string,
+    feFechaCreacion:string,
+    dsActivo:string,
+    dsContraseña:string,
+    rolUsuario:{
+        nmIdRol:number,
+        dsRol:string,
+        feFechaCreacion:string
+    }
+}
